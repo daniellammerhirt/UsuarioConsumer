@@ -16,8 +16,6 @@ public class UsuarioConsumerApplication {
         SpringApplication.run(UsuarioConsumerApplication.class, args);
     }
 
-
-
     @Bean
     public WebClient.Builder webClientBuilder() {
         return WebClient.builder();
@@ -32,15 +30,4 @@ public class UsuarioConsumerApplication {
     }
 }
 
-@Bean
-public WebClient.Builder webClientBuilder(){
-    return WebClient.builder();
-}
 
-@Bean
-public WebClient webClient(WebClient.Builder builder){
-    return builder
-            .baseUrl("http://localhost:4000/")
-            .defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
-            .build();
-}
