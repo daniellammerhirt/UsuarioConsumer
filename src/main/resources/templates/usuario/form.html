@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.8, shrink-to-fit=no">
+    <title>Title</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<form th:object="${/usuario}" th:action="@{usuario/save)" method="POST">
+    <container>
+        <label>Nome</label>
+        <input type="text" th:field="*{usuarioInfo.nome}">
+        <label>Email</label>
+        <input type="text" th:>
+        <label>Data de Nascimento</label>
+        <input type="date" th:field="{usuarioInfo.dataNascimento}">
+        <label>Cpf</label>
+        <input type="text" th:field="*{usuario.cpf}">
+        <label>Senha</label>
+        <input type="password" th:field="*{usuario.senha}">
+    </container>
+    </form>
+</body>
+</html>

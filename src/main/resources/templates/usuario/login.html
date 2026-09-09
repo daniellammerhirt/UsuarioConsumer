@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.8, shrink-to-fit=no">
+    <title>Title</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<navbar>
+    <a th:href="@{/usuario}">Login</a>
+</navbar>
+    <container>
+        <label>Cpf</label>
+        <input type="text" required>
+        <label>Senha</label>
+        <input type="text">
+        <a th:href="@{'/usuario/'" + >Entrar</a>
+        <a th:href="@{/usuario/new}">Cadastrar</a>
+    </container>
+</body>
+</html>

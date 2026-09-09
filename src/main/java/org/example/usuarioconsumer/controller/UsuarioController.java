@@ -2,6 +2,9 @@ package org.example.usuarioconsumer.controller;
 
 
 import org.example.usuarioconsumer.model.Usuario;
+import org.example.usuarioconsumer.model.UsuarioInfo;
+import org.example.usuarioconsumer.model.UsuarioJunto;
+import org.example.usuarioconsumer.service.UsuarioInfoService;
 import org.example.usuarioconsumer.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,6 +18,9 @@ public class UsuarioController {
     @Autowired
     private UsuarioService usuarioService;
 
+    @Autowired
+    private UsuarioInfoService usuarioInfoService;
+
     @GetMapping("/new")
     public String newUsuario(Model model){
         model.addAttribute("usuario", new Usuario());
@@ -24,17 +30,17 @@ public class UsuarioController {
     @GetMapping("")
     public String listUsuario(Model model){
         model.addAttribute("listUsuario", usuarioService.findAll());
-        return "usuario/list";
+        return "usuario/login";
     }
 
     @GetMapping("/{id}/edit")
     public String editUsuario(@PathVariable("id") Integer id, Model model){
-        model.addAttribute("usuario", usuarioService.findById(id));
+        model.addAttribute("usuario", new UsuarioJunto(usuarioService.findById(id), usuarioInfoService.findById(id)));
         return "usuario/form";
     }
 
     @PostMapping("/save")
-    public String saveUsuario(@ModelAttribute("usuario") Usuario usuario){
+    public String saveUsuario(@ModelAttribute("usuario") UsuarioJunto usuario){
         usuarioService.save(usuario);
         return "redirect:/usuario";
     }
