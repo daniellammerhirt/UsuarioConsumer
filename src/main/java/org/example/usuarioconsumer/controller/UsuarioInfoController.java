@@ -21,7 +21,7 @@ public class UsuarioInfoController {
     @GetMapping("")
     public String listUsuarioInfo(Model model) {
         model.addAttribute("usuarioInfo", usuarioInfoService.findAll());
-        return "usuario/indo/list";
+        return "usuario/info/list";
     }
 
     @GetMapping("/{id}/edit")
