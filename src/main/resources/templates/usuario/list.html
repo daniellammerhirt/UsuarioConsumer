@@ -26,9 +26,6 @@
 
 
         <tr th:each="usuario : ${listUsuario}">
-            <td th:text="${usuarioInfo.nome}"/>
-            <td th:text="${usuarioInfo.email}"/>
-            <td th:text="${usuario.dataNascimento}"/>
             <td th:text="${usuario.cpf}"/>
             <td th:text="${usuario.senha}"/>
             <td>

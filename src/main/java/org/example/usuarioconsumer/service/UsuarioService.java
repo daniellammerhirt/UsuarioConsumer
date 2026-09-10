@@ -32,12 +32,12 @@ public class UsuarioService {
         return monoUsuario.block();
     }
 
-    public List<UsuarioJunto> findAll(){
+    public List<Usuario> findAll(){
         Mono<List<Usuario>> monoListUsuario = this.webClient.method(HttpMethod.GET).
                 uri(uri).
                 retrieve().
                 bodyToFlux(Usuario.class).collectList();
-        Usuario usuario = monoListUsuario.block();
+        return monoListUsuario.block();
 
     }
 
