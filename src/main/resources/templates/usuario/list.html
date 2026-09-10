@@ -4,11 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=0.8, shrink-to-fit=no">
     <title>Title</title>
+    <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-    <container>
-        <label>Nome</label>
 
-    </container>
+<navbar>
+    <a th:href="@{/usuario}">Usuários</a>
+    <a th:href="@{usuario/new}">Novo</a>
+</navbar>
+
+<tr th:each="usuario : ${listUsuario}">
+    <table>
+        <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Data de Nascimento</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+
+
+        <tr th:each="usuario : ${listUsuario}">
+            <td th:text="${usuarioInfo.nome}"/>
+            <td th:text="${usuarioInfo.email}"/>
+            <td th:text="${usuario.dataNascimento}"/>
+            <td th:text="${usuario.cpf}"/>
+            <td th:text="${usuario.senha}"/>
+            <td>
+                <a th:href="@{'/usuario/' + ${usuario.id} + '/edit'}"><i data-lucide="user-round-pen"></i>Editar</a>
+                <a th:href="@{'/usuario/' + ${usuario.id} + '/delete'}"><i data-lucide="user-round-x"></i>Deletar</a>
+            </td>
+        </tr>
+    </table>
 </body>
 </html>

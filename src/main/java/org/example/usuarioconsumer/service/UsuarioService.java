@@ -26,18 +26,19 @@ public class UsuarioService {
 
     public Usuario findById(Integer id){
         Mono<Usuario> monoUsuario = this.webClient.method(HttpMethod.GET).
-                uri(uri).
+                uri(uri + "/" + id).
                 retrieve().
                 bodyToMono(Usuario.class);
         return monoUsuario.block();
     }
 
-    public List<Usuario> findAll(){
+    public List<UsuarioJunto> findAll(){
         Mono<List<Usuario>> monoListUsuario = this.webClient.method(HttpMethod.GET).
                 uri(uri).
                 retrieve().
                 bodyToFlux(Usuario.class).collectList();
-        return monoListUsuario.block();
+        Usuario usuario = monoListUsuario.block();
+
     }
 
     public Usuario save(UsuarioJunto usuarioJunto){

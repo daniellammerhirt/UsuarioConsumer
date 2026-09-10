@@ -23,14 +23,14 @@ public class UsuarioController {
 
     @GetMapping("/new")
     public String newUsuario(Model model){
-        model.addAttribute("usuario", new Usuario());
+        model.addAttribute("usuario", new UsuarioJunto(new Usuario(), new UsuarioInfo()));
         return "usuario/form";
     }
 
     @GetMapping("")
     public String listUsuario(Model model){
         model.addAttribute("listUsuario", usuarioService.findAll());
-        return "usuario/login";
+        return "usuario/list";
     }
 
     @GetMapping("/{id}/edit")
@@ -48,6 +48,7 @@ public class UsuarioController {
     @GetMapping("{id}/delete")
     public String deleteUsuario(@PathVariable("id") Integer id){
         usuarioService.delete(id);
+        usuarioInfoService.delete(id);
         return "redirect:/usuario";
     }
 

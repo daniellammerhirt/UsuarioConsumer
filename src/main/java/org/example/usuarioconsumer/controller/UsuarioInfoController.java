@@ -16,11 +16,7 @@ public class UsuarioInfoController {
     @Autowired
     private UsuarioInfoService usuarioInfoService;
 
-    @GetMapping("/new")
-    public String newUsuarioInfo(Model model) {
-        model.addAttribute("usuario", new UsuarioInfo());
-        return "usuario/info/form";
-    }
+
 
     @GetMapping("")
     public String listUsuarioInfo(Model model) {
@@ -34,11 +30,6 @@ public class UsuarioInfoController {
         return "usuario/info/form";
     }
 
-    @PostMapping("/save")
-    public String saveUsuarioInfo(@ModelAttribute("usuarioInfo") UsuarioInfo usuarioInfo) {
-        usuarioInfoService.save(usuarioInfo);
-        return "redirect:/usuario/info";
-    }
 
     @GetMapping("{id}/delete")
     public String deleteUsuario(@PathVariable("id") Integer id) {

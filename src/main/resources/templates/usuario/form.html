@@ -5,20 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=0.8, shrink-to-fit=no">
     <title>Title</title>
     <link rel="stylesheet" href="/style.css">
+    <script src="script/javascript.js" async></script>
 </head>
 <body>
-<form th:object="${/usuario}" th:action="@{usuario/save)" method="POST">
+
+<navbar>
+    <a th:href="@{/usuario/new}">Usuário</a>
+</navbar>
+
+<form th:object="${usuario}" th:action="@{/usuario/save}" method="POST">
     <container>
         <label>Nome</label>
-        <input type="text" th:field="*{usuarioInfo.nome}">
+        <input type="text" th:field="*{usuarioInfo.nome}" required>
         <label>Email</label>
-        <input type="text" th:>
+        <input type="text" th:field="*{usuarioInfo.email}" required>
         <label>Data de Nascimento</label>
-        <input type="date" th:field="{usuarioInfo.dataNascimento}">
+        <input type="date" th:field="*{usuarioInfo.dataNascimento}" required>
         <label>Cpf</label>
-        <input type="text" th:field="*{usuario.cpf}">
+        <input type="text" th:field="*{usuario.cpf}" required id="cpf" maxlength="14">
         <label>Senha</label>
-        <input type="password" th:field="*{usuario.senha}">
+        <input type="password" th:field="*{usuario.senha}" required maxlength="200">
+        <button type="submit">Salvar</button>
     </container>
     </form>
 </body>
