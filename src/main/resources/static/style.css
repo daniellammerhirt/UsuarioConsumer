@@ -24,14 +24,21 @@ body{
 
 navbar{
     background: linear-gradient(180deg, var(--secundy-color) , black);
+    display: flex;
+    justify-content: space-between;
+    gap: 15%;
 
     a{
         font-size:40px;
         text-decoration: none;
         margin: 20px;
         align-items: center;
-        gap: 20px;
 
+    }
+
+    a:nth-child(2), a:nth-child(3){
+        display: flex;
+        font-size: 30px;
     }
 }
 
@@ -93,9 +100,19 @@ table{
     margin: 10px;
     display: flex;
     flex-direction: column;
+
     tr {
         display: flex;
         justify-content: space-between;
-        margin: 10px;
+        margin: 10px 30px;
+    }
+
+    thead{
+        margin: 0 10px;
+        border-bottom: black solid 2px;
+    }
+
+    td{
+        margin: 0 10px;
     }
 }

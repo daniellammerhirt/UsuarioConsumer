@@ -1,10 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.8, shrink-to-fit=no">
     <title>Title</title>
+    <link rel="stylesheet" href="/style.css">
 </head>
 <body>
 
+<navbar>
+    <a th:href="@{/usuario/info}">Informações</a>
+    <a th:href="@{usuario/new}">Novo</a>
+    <a th:href="@{/usuario}">Usuários</a>
+</navbar>
+
+
+<table>
+    <thead>
+    <tr>
+        <th>Nome</th>
+        <th>Email</th>
+        <th>Data de Nascimento</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+
+
+    <tr th:each="usuarioInfo : ${listUsuarioInfo}">
+        <td th:text="${usuarioInfo.nome}"/>
+        <td th:text="${usuarioInfo.email}"/>
+        <td th:text="${usuarioInfo.dataNascimento}"/>
+        <td>
+            <a th:href="@{'/usuario/' + ${usuario.id} + '/edit'}"><i data-lucide="user-round-pen"></i>Editar</a>
+            <a th:href="@{'/usuario/' + ${usuario.id} + '/delete'}"><i data-lucide="user-round-x"></i>Deletar</a>
+        </td>
+    </tr>
+</table>
 </body>
 </html>

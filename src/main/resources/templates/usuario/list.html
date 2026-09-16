@@ -11,9 +11,10 @@
 <navbar>
     <a th:href="@{/usuario}">Usuários</a>
     <a th:href="@{usuario/new}">Novo</a>
+    <a th:href="@{/usuario/info}">Informações</a>
 </navbar>
 
-<tr th:each="usuario : ${listUsuario}">
+
     <table>
         <thead>
         <tr>
