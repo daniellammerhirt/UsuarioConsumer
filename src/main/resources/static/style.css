@@ -26,10 +26,10 @@ navbar{
     background: linear-gradient(180deg, var(--secundy-color) , black);
     display: flex;
     justify-content: space-between;
-    gap: 15%;
+    gap: 12%;
 
     a{
-        font-size:40px;
+        font-size:35px;
         text-decoration: none;
         margin: 20px;
         align-items: center;
@@ -55,7 +55,7 @@ container{
 
     input {
         outline: none;
-        width: fit-content;
+        width: max(90%);
         border: 2px solid black;
         border-radius: 4px;
         color: black;
@@ -94,7 +94,7 @@ form{
     height: calc(100dvh - 54px);
 }
 
-table{
+table {
     background-color: var(--secundy-color);
     border-radius: 8px;
     margin: 10px;
@@ -107,12 +107,43 @@ table{
         margin: 10px 30px;
     }
 
-    thead{
+    thead {
         margin: 0 10px;
         border-bottom: black solid 2px;
     }
 
-    td{
+    td {
         margin: 0 10px;
+
+        a {
+            text-decoration: none;
+            border-radius: 4px;
+            transition: 2s;
+            margin: 4px;
+            padding: 4px;
+
+            &:hover {
+                background-color: #274481;
+                transition: 2s;
+            }
+        }
+
     }
 }
+    .botao{
+        display: flex;
+        width: fit-content;
+        padding: 6px;
+        margin: 4px;
+        text-decoration: none;
+        background-color: var(--secundy-color);
+        border: var(--secundy-color) solid 2px;
+        border-radius: 4px;
+        transition: 2s;
+
+        &:hover{
+            background-color: transparent;
+            color: var(--secundy-color);
+            box-shadow: 0px 0px 20px 5px var(--thirdy-color);
+        }
+    }

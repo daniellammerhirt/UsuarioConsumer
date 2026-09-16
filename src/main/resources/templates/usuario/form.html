@@ -13,6 +13,8 @@
     <a th:href="@{/usuario/new}">Usuário</a>
 </navbar>
 
+<a th:href="@{/usuario}" class="botao">Voltar</a>
+
 <form th:object="${usuario}" th:action="@{/usuario/save}" method="POST">
     <container>
         <label>Nome</label>

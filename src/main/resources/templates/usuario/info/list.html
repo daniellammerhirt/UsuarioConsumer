@@ -10,9 +10,10 @@
 
 <navbar>
     <a th:href="@{/usuario/info}">Informações</a>
-    <a th:href="@{usuario/new}">Novo</a>
+    <a th:href="@{new}">Novo</a>
     <a th:href="@{/usuario}">Usuários</a>
 </navbar>
+
 
 
 <table>
@@ -31,8 +32,8 @@
         <td th:text="${usuarioInfo.email}"/>
         <td th:text="${usuarioInfo.dataNascimento}"/>
         <td>
-            <a th:href="@{'/usuario/' + ${usuario.id} + '/edit'}"><i data-lucide="user-round-pen"></i>Editar</a>
-            <a th:href="@{'/usuario/' + ${usuario.id} + '/delete'}"><i data-lucide="user-round-x"></i>Deletar</a>
+            <a th:href="@{'/usuario/' + ${usuarioInfo.usuarioId} + '/edit'}"><i data-lucide="user-round-pen"></i>Editar</a>
+            <a th:href="@{'/usuario/' + ${usuarioInfo.usuarioId} + '/delete'}"><i data-lucide="user-round-x"></i>Deletar</a>
         </td>
     </tr>
 </table>

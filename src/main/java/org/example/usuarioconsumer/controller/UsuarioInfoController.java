@@ -20,20 +20,7 @@ public class UsuarioInfoController {
 
     @GetMapping("")
     public String listUsuarioInfo(Model model) {
-        model.addAttribute("usuarioInfo", usuarioInfoService.findAll());
+        model.addAttribute("listUsuarioInfo", usuarioInfoService.findAll());
         return "usuario/info/list";
-    }
-
-    @GetMapping("/{id}/edit")
-    public String editUsuarioInfo(@PathVariable("id") Integer id, Model model) {
-        model.addAttribute("usuarioInfo", usuarioInfoService.findById(id));
-        return "usuario/info/form";
-    }
-
-
-    @GetMapping("{id}/delete")
-    public String deleteUsuario(@PathVariable("id") Integer id) {
-        usuarioInfoService.delete(id);
-        return "redirect:/usuario/info";
     }
 }
