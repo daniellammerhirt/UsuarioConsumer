@@ -3,8 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=0.8, shrink-to-fit=no">
-    <title>Title</title>
+    <title>Usuarios</title>
     <link rel="stylesheet" href="/style.css">
+    <script src="http://unpkg.com/lucide@latest"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function (){
+            lucide.createIcons();
+        })
+    </script>
 </head>
 <body>
 
@@ -30,7 +36,7 @@
             <td th:text="${usuario.senha}"/>
             <td>
                 <a th:href="@{'/usuario/' + ${usuario.id} + '/edit'}"><i data-lucide="user-round-pen"></i>Editar</a>
-                <a th:href="@{'/usuario/' + ${usuario.id} + '/delete'}"><i data-lucide="user-round-x"></i>Deletar</a>
+                <a th:href="@{'/usuario/' + ${usuario.id} + '/delete'}" onclick="if (!(confirm('Tem certeza que deseja excluir'))) return false"><i data-lucide="user-round-x" ></i>Deletar</a>
             </td>
         </tr>
     </table>

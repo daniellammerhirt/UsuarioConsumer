@@ -3,17 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=0.8, shrink-to-fit=no">
-    <title>Title</title>
+    <title>Cadastro</title>
     <link rel="stylesheet" href="/style.css">
     <script src="/script/javascript.js" async></script>
+    <script src="http://unpkg.com/lucide@latest"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function (){
+            lucide.createIcons();
+        })
+    </script>
 </head>
 <body>
 
 <navbar>
-    <a th:href="@{/usuario/new}">Usuário</a>
+    <a th:href="@{/usuario/new}">Cadastro</a>
 </navbar>
 
-<a th:href="@{/usuario}" class="botao">Voltar</a>
+<a th:href="@{/usuario}" class="botao"><i data-lucide="circle-arrow-left"></i>Voltar</a>
 
 <form th:object="${usuario}" th:action="@{/usuario/save}" method="POST">
     <container>
